@@ -11,10 +11,6 @@ import com.google.gson.Gson;
 
 public class CEP {
 
-    public static void main(String[] args) {
-         consult(56903060);
-    }
-
     public static CEPModel consult(int cep){
         try {
             URL url = new URL("http://viacep.com.br/ws/"+cep+"/json");
@@ -24,7 +20,7 @@ public class CEP {
             Gson gson = new Gson();
             return gson.fromJson(br,CEPModel.class);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return null;
         }
     }
 

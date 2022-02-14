@@ -1,5 +1,7 @@
 package com.rest.RESTAPI.dtos;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -8,8 +10,8 @@ public class RESTdto {
     @NotBlank(message = "Name is mandatory")
     private String name;
 
-    @NotNull(message = "CPF is mandatory")
-    //@CPF(message = "CPF is mandatory") desativado para testes
+    //@NotNull(message = "CPF is mandatory")
+    @CPF(message = "CPF is mandatory")
     private String cpf;
 
     @NotNull(message = "CEP is mandatory")

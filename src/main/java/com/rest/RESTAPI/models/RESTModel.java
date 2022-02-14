@@ -11,7 +11,7 @@ import java.util.UUID;
 public class RESTModel implements Serializable {
 
     @Serial
-    private static final long serialVersionUID = 1L;;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +23,7 @@ public class RESTModel implements Serializable {
     @Column(length = 1)
     private String sex;
     @Column(nullable = false)
-    private int cpf;
+    private String cpf;
     @Column(nullable = false, length = 8)
     private int cep;
     @Column()
@@ -67,11 +67,11 @@ public class RESTModel implements Serializable {
         this.sex = sex;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -113,13 +113,6 @@ public class RESTModel implements Serializable {
 
     public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
-    }
-
-    public String getall(){
-        return "name: " + name+"\n"+
-                "age: " + age+"\n"+
-                "cep: " + cep+"\n"+
-                "cpf: " + cpf;
     }
 
 }

@@ -9,5 +9,6 @@ import java.util.UUID;
 
 @Repository
 public interface RESTRepositorie extends JpaRepository<RESTModel, UUID> {
+    boolean existsBycpf(String cpf);
 
 }
