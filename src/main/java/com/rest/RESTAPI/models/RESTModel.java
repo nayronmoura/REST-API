@@ -1,5 +1,4 @@
 package com.rest.RESTAPI.models;
-
 import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
@@ -39,7 +38,7 @@ public class RESTModel implements Serializable {
         return id;
     }
 
-    public void setId() {
+    public void setId(UUID id) {
         this.id = UUID.randomUUID();
     }
 

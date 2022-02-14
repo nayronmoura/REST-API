@@ -80,5 +80,18 @@ public class RESTController {
         return ResponseEntity.status(HttpStatus.OK).body("Sucess deleted");
 
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> putModel(@PathVariable(value = "id")UUID id, @RequestBody @Valid RESTdto model){
+        Optional<RESTModel> modelOptional = resTservices.findById(id);
+        if(modelOptional.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("register not found");
+        }
+        var restmodel = new RESTModel();
+        BeanUtils.copyProperties(model, restmodel);
+        restmodel.setId(modelOptional.get().getId());
+        restmodel.setTimestamp(modelOptional.get().getTimestamp());
+        return ResponseEntity.status(HttpStatus.OK).body(resTservices.save(restmodel));
+    }
 }
 
