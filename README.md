@@ -13,7 +13,7 @@
 <h4>* cep (int)</h4>
 <h4>* sex (char)</h4>
 <h4>* age (int)</h4>
-<h3>delete /api/id apenas é deletado os dados do ID selecionado</h3
+<h3>DELETE /api/id apenas é deletado os dados do ID selecionado</h3
 </br>
-<h3>Put /api/id enviar os dados que devem ser alterados via body</h3>
+<h3>PUT /api/id enviar os dados que devem ser alterados via body</h3>
 
