@@ -22,15 +22,24 @@ public class RESTservices {
     public RESTModel save(RESTModel model){
         return repositorie.save(model);
     }
+
     public boolean existsByCPF(String cpf){
         return repositorie.existsBycpf(cpf);
     }
+
     public List<RESTModel> findAll(){
-        return repositorie.findAll();
+        List<RESTModel> list =  repositorie.findAll();
+        for (RESTModel model: list) {
+            String cpf = model.getCpf();
+            model.setCpf(cpf.substring(0,3) + ".***.***-" + cpf.substring(9,11));
+        }
+        return list;
     }
+
     public Optional<RESTModel> findById(UUID id){
         return repositorie.findById(id);
     }
+
     @Transactional
     public void delete(RESTModel model){
         repositorie.delete(model);
