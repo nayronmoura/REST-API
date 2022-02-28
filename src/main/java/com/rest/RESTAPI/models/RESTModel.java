@@ -1,4 +1,6 @@
 package com.rest.RESTAPI.models;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
@@ -13,7 +15,8 @@ public class RESTModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue()
+    @Type(type="org.hibernate.type.UUIDCharType")
     private UUID id;
     @Column(nullable = false)
     private String name;
